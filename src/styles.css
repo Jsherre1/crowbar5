@@ -1,0 +1,634 @@
+.delivery-times-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+/***********************************************************
+  Global / Reset
+************************************************************/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #f6f5fa;
+  --accent-color: #8e85ff;
+  --gradient-start: #5351a8;
+  --gradient-end: #8e85ff;
+  --gray: #878787;
+  --text-color: #333;
+  --font-family: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --animation-duration: 800ms;
+  --logo-animation-duration: 1000ms;
+  --border-radius: 16px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+/***********************************************************
+  Animation Classes
+************************************************************/
+.fade-in {
+  animation: fadeIn var(--animation-duration) ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut var(--animation-duration) ease-in-out forwards;
+}
+
+.logo-shrink {
+  animation: logoShrink var(--logo-animation-duration) ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes logoShrink {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.6) translateY(-30px);
+  }
+}
+
+/***********************************************************
+  Utility / Screens
+************************************************************/
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-screen {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+/***********************************************************
+  1) Loading Screen
+************************************************************/
+.loading-screen {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--logo-animation-duration) ease-in-out;
+}
+
+.logo {
+  width: 220px; /* Increased by 80% from 120px */
+  height: auto;
+}
+
+.loading-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 0.5rem;
+}
+
+.loading-subtitle {
+  font-size: 1rem;
+  color: var(--accent-color);
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.powered-by {
+  font-weight: 700;
+}
+
+.just-breathe-logo {
+  height: 24px;
+  width: auto;
+}
+
+/***********************************************************
+  2) Age Gate
+************************************************************/
+.agegate-screen {
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.agegate-content {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-small {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-top: 0.5rem;
+}
+
+.agegate-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: left;
+  color: #000;
+}
+
+.agegate-subtitle {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: var(--gray);
+  width: 100%;
+  text-align: left;
+}
+
+.agegate-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.btn-yes {
+  background: linear-gradient(
+    45deg,
+    var(--gradient-end),
+    var(--gradient-start)
+  );
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.8rem 0;
+  width: 140px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-no {
+  background: transparent;
+  color: var(--gray);
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  padding: 0.8rem 0;
+  width: 100px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  font-weight: 700;
+  text-align: center;
+}
+
+/***********************************************************
+  3) Home Screen
+************************************************************/
+.home-screen {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-logo {
+  width: 30px;
+  height: auto;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+.header-just-breathe-logo {
+  height: 18px;
+  width: auto;
+}
+
+.map-section {
+  margin-bottom: 2rem;
+}
+
+.map-placeholder {
+  position: relative;
+  height: 180px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* Hide map fallback when Google Maps is active */
+.map-fallback {
+  display: none;
+}
+
+.map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.pin-image-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.pin-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.delivery-info {
+  padding: 0 1rem;
+}
+
+.delivery-to {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--gray);
+  text-align: center;
+  width: 100%;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.location-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+.address-copy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location-subtitle {
+  font-size: 1rem;
+  color: var(--gray);
+  text-align: center;
+}
+
+.copy-address-link {
+  background: linear-gradient(
+    45deg,
+    var(--gradient-end),
+    var(--gradient-start)
+  );
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.delivery-times {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.delivery-times-title,
+.category-title {
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: var(--font-family);
+}
+
+.time-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0.5rem;
+  width: 100%;
+}
+
+.time-btn {
+  color: #fff;
+  font-weight: 900;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  width: 33%;
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-family);
+}
+
+.time-btn-first {
+  background: linear-gradient(
+    45deg,
+    var(--gradient-end),
+    var(--gradient-start)
+  );
+}
+
+.time-btn-other {
+  background: #000;
+}
+
+.time-btn:hover {
+  opacity: 0.9;
+}
+
+.order-timer {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+/***********************************************************
+  4) Product Carousels - FIXED
+************************************************************/
+.products-section {
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+}
+
+.product-carousel-container {
+  margin-bottom: 2rem;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.category-title {
+  margin: 0;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-control {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.product-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.product-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fixed product card styling */
+.product-card {
+  min-width: 160px;
+  height: 240px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0.75rem;
+}
+
+.product-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.product-image {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.product-info {
+  height: 40%;
+  padding: 0.5rem 0 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  color: var(--gray);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  margin: 0.25rem 0;
+  line-height: 1.2;
+}
+
+.product-brand {
+  font-size: 0.75rem;
+  color: var(--gray);
+  display: block;
+  margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    min-width: 200px;
+    height: 300px;
+  }
+
+  .product-title {
+    font-size: 1.25rem;
+  }
+
+  .map-placeholder {
+    height: 250px;
+  }
+}
+/* Map container with dark background */
+.map-placeholder {
+  background-color: #111 !important;
+  position: relative;
+  height: 180px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+/* Custom marker with black background */
+.custom-map-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.pin-image-container {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background-color: #000 !important; /* Force black background */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 3px solid #fff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.pin-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Style the attribution control for better visibility on dark theme */
+.leaflet-control-attribution {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  color: #ccc !important;
+  font-size: 8px !important;
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+  max-width: 80% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.leaflet-control-attribution a {
+  color: #aaa !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .leaflet-control-attribution {
+    max-width: 60% !important;
+    font-size: 7px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .map-placeholder {
+    height: 250px;
+  }
+}
